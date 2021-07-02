@@ -1,0 +1,147 @@
+openapi: '3.0.2'
+info:
+  title: Fix-It-Backend
+  version: '1.0.0'
+  contact:
+    email: bkevin1052@gmail.com
+  license:
+    name: NodeJs
+    url: https://nodejs.org/es/
+servers:
+    - url: https://api.server.test/v1
+
+components:
+  schemas:
+    Ordenes:
+      type: object
+      required:
+        - _id
+        - user
+        - Total
+        - Direccion_Entrega
+        - Direccion_Facturacion
+        - Estado
+        - repuestos
+        - repuestosObjects
+      properties:
+        _id:
+          type: string
+        user:
+          type: string
+        Total:
+          type: string
+        Direccion_Entrega:
+          type: string
+        Direccion_Facturacion:
+          type: string
+        Estado:
+          type: string
+        repuestos:
+          type: string
+        repuestosObjects:
+          type: string
+
+    Repuestos:
+      type: object
+      required:
+        - _id
+        - codigo
+        - nombre
+        - img
+        - precio
+        - precio_oferta
+      properties:
+        _id:
+          type: string
+        codigo:
+          type: string
+        nombre:
+          type: string
+        img:
+          type: string
+        precio:
+          type: string
+        precio_oferta:
+          type: string
+paths:
+  /orden:
+    get:
+      description: Obtener ordenes de usuario
+      responses:
+        "200":
+          description: OK
+        "500":
+          description: Error
+        "404":
+          description: Not found
+
+    put:
+      description: Actualizar orden de usuario
+      responses:
+        "200":
+          description: OK
+        "404":
+          description: Not found
+        "204":
+          description: Document updated
+        "500":
+          description: Error
+
+    post:
+      description: Agregar orden de usuario
+      responses:
+        "200":
+          description: OK
+        "201":
+          description: Result
+
+    delete:
+      description: Eliminar ordenes de usuario
+      responses:
+        '200':
+          description: OK
+        '204':
+          description: Document deleted
+        '500':
+          description: Error
+          
+  /respuesto:
+    get:
+      description: Obtener respuestos
+      responses:
+        "200":
+          description: OK
+        '404':
+          description: Not found
+        '500':
+          description: Error
+
+    put:
+      description: Actualizar repuestos
+      responses:
+        "200":
+          description: OK
+        '204':
+          description: Document updated
+        '500':
+          description: Error
+
+    post:
+      description: Agregar repuestos
+      responses:
+        "200":
+          description: OK
+        '201':
+          description: Result
+        '500':
+          description: Error
+
+    delete:
+      description: Eliminar repuestos
+      responses:
+        "200":
+          description: OK
+        '204':
+          description: Document deleted
+        '500':
+          description: Error
