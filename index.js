@@ -18,7 +18,10 @@ app.use(function(req, res, next) {
   
 app.use('/repuesto',repuestosRoute)
 app.use('/orden',ordenesRoute)
+app.get('/health', async function (req,res) { 
 
+  return res.status(200).json("Health API");
+ })
 
 app.use(express.static('public'))
 
